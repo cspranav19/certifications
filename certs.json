@@ -142,5 +142,14 @@
     "expiryDate": "2026-04-02",
     "category": "Cloud-IaaS",
     "link": "https://drive.google.com/file/d/1IzpPBMxwZmf2uyBHnEXIbQfZGhTgXYil/view?usp=drive_link"
+  },
+  {
+    "id": 17,
+    "name": "1Z0-1094-21: Oracle Cloud Database Migration and Integration 2021 Specialist",
+    "issuer": "Oracle",
+    "earnedDate": "2021-12-30",
+    "expiryDate": "2023-12-30",
+    "category": "Cloud-IaaS",
+    "link": "https://drive.google.com/file/d/1xV_u1QfRQnHOY_NCRffP2G3rmFg2VXeK/view?usp=drive_link"
   }
 ]
