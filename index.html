@@ -251,7 +251,9 @@
           });
 		  */
 		  // Commented by Pranav on 2025-05-17 to fix the colour coding issue.
-		  
+
+          // Build table rows
+		  // Added by Pranav on 2025-05-17 to fix the colour coding issue.		  
 		  data.forEach(cert => {
 		    const tr = document.createElement('tr');
 
@@ -284,6 +286,7 @@
 
 		    tableBody.appendChild(tr);
 		  });
+		  // Added by Pranav on 2025-05-17 to fix the colour coding issue.
 
           rows = [...tableBody.rows]; // Save reference to rows array
 
