@@ -99,6 +99,19 @@
       opacity: 1;
       transform: rotate(180deg);
     }
+
+	/* Added by Pranav on 2025-05-17 to apply Red   colour to the cells of the Expiry Date column when the Date <  Today's Date */
+    .expired {
+      color: red;
+      font-weight: bold;
+    }
+
+	/* Added by Pranav on 2025-05-17 to apply Green colour to the cells of the Expiry Date column when the Date >= Today's Date */
+    .valid {
+      color: green;
+      font-weight: bold;
+    }	
+
   </style>
 </head>
 <body>
@@ -207,6 +220,7 @@
       let rows = []; // Will hold all table rows once generated
 
       // Load JSON data and build table
+	  // Commented by Pranav on 2025-05-17 to fix the cache buster issue.
       // fetch('certs.json') 
 	  // Commented by Pranav on 2025-05-17 to fix the cache buster issue.
 	  fetch('certs.json?v=' + new Date().getTime())
@@ -216,6 +230,8 @@
         })
         .then(data => {
           // Build table rows
+		  // Commented by Pranav on 2025-05-17 to fix the colour coding issue.
+		  /*
           data.forEach(cert => {
             const tr = document.createElement('tr');
 
@@ -233,6 +249,41 @@
 
             tableBody.appendChild(tr);
           });
+		  */
+		  // Commented by Pranav on 2025-05-17 to fix the colour coding issue.
+		  
+		  data.forEach(cert => {
+		    const tr = document.createElement('tr');
+
+		    // Build the row first
+		    tr.innerHTML = `
+			  <td>${cert.id}</td>
+			  <td>${cert.name}</td>
+			  <td>${cert.issuer}</td>
+			  <td>${cert.earnedDate}</td>
+			  <td class="expiry-cell">${cert.expiryDate}</td>
+			  <td>${cert.category}</td>
+			  <td>
+			    <a href="${cert.link}" target="_blank" class="btn blue view-btn">View</a>
+			  </td>
+		  `  ;
+
+		    // Add expiry coloring logic
+		    const expiryCell = tr.querySelector('.expiry-cell');
+		    const expiryDate = new Date(cert.expiryDate);
+		    const today = new Date();
+		    today.setHours(0, 0, 0, 0); // Normalize to midnight
+
+		    if (!isNaN(expiryDate)) {
+			  if (expiryDate < today) {
+			    expiryCell.classList.add('expired');
+			  } else {
+			    expiryCell.classList.add('valid');
+			  }
+		    }
+
+		    tableBody.appendChild(tr);
+		  });
 
           rows = [...tableBody.rows]; // Save reference to rows array
 
