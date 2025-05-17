@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Google Data Analytics",
-    "issuer": "Coursera",
-    "earnedDate": "Jan 2024",
-    "expiryDate": "N/A",
-    "category": "Data Science",
-    "link": "https://example.com/cert1"
+    "name": "Oracle Cloud Infrastructure Foundations 2020 Certified Associate",
+    "issuer": "Oracle",
+    "earnedDate": "15-APR-2021",
+    "expiryDate": "15-OCT-2022",
+    "category": "Cloud-IaaS",
+    "link": "https://drive.google.com/file/d/1DY0XBKDAw3tDZBNySxthABw1bDOQCe8w/view?usp=drive_link"
   },
   {
     "id": 2,
