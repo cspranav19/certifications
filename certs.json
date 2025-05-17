@@ -109,21 +109,21 @@
   },
   {
     "id": 13,
-    "name": "ToUpdate",
-    "issuer": "ToUpdate",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "ToUpdate"
+    "name": "1Z0-1042-21: Oracle Cloud Platform Application Integration 2021 Specialist",
+    "issuer": "Oracle",
+    "earnedDate": "27-12-2021",
+    "expiryDate": "27-12-2023",
+    "category": "Cloud-PaaS",
+    "link": "https://drive.google.com/file/d/1ZUPw3wHbWJrDYeAVRDCLWNCQNW_Ku0g4/view?usp=drive_link"
   },
   {
     "id": 14,
-    "name": "ToUpdate",
-    "issuer": "ToUpdate",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "ToUpdate"
+    "name": "1Z0-1042-22: Oracle Cloud Platform Application Integration 2022 Professional",
+    "issuer": "Oracle",
+    "earnedDate": "07-03-2023",
+    "expiryDate": "07-03-2025",
+    "category": "Cloud-PaaS",
+    "link": "https://drive.google.com/file/d/1NlX1RykKQ6H5zNMypij5GjSc-auNjeWN/view?usp=drive_link"
   },
   {
     "id": 15,
