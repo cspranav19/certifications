@@ -2,228 +2,369 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Certifications</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certifications Portfolio</title>
+
+  <!-- Materialize CSS for Material Design styles -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
   <style>
+    /* Body uses Roboto font and light gray background */
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
+      background-color: #fafafa;
+      padding: 2rem;
     }
 
+    /* Page title centered with Material Blue color */
     h1 {
       text-align: center;
-      color: #3f51b5;
+      margin-bottom: 2rem;
+      color: #1565c0; /* Material Blue 700 */
+      font-weight: 700;
     }
 
-    .controls {
+    /* Filters container: flex layout, gap between dropdowns, center aligned */
+    .filters {
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
       display: flex;
-      justify-content: space-between;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 20px;
-      gap: 10px;
+      justify-content: center;
     }
 
-    input, select {
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      min-width: 200px;
+    /* Limit width of dropdowns */
+    .filters select {
+      max-width: 200px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    th, td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      text-align: left;
-    }
-
-    th {
-      background-color: #3f51b5;
-      color: white;
+    /* Table row hover highlight in light blue, pointer cursor for interactivity */
+    table.striped > tbody > tr:hover {
+      background-color: #bbdefb !important;
       cursor: pointer;
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
+    /* Button styling - override uppercase to normal text */
+    a.view-btn {
+      text-transform: none;
     }
 
-    .view-button {
+    /* Footer styling */
+    footer.page-footer {
+      margin-top: 3rem;
+      padding: 1rem 0;
+      background-color: #1565c0;
       color: white;
-      background-color: #4caf50;
-      padding: 6px 12px;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    .view-button:hover {
-      background-color: #45a049;
-    }
-
-    .expired {
-      color: red;
-      font-weight: bold;
-    }
-
-    .valid {
-      color: green;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 40px;
       text-align: center;
-      font-size: 0.9em;
-      color: #777;
+    }
+
+    /* Sortable headers cursor and no text selection */
+    th.sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Sortable headers hover color */
+    th.sortable:hover {
+      color: #0d47a1;
+    }
+
+    /* Sorting arrow icons styling */
+    th .material-icons {
+      vertical-align: middle;
+      font-size: 18px;
+      opacity: 0.4; /* dim when not active */
+      margin-left: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Arrow fully visible and normal orientation when ascending */
+    th.sorted-asc .material-icons {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    /* Arrow fully visible and flipped when descending */
+    th.sorted-desc .material-icons {
+      opacity: 1;
+      transform: rotate(180deg);
     }
   </style>
 </head>
 <body>
+  <!-- Page title -->
+  <h1>Certifications Portfolio</h1>
 
-  <h1>My Certifications</h1>
-
-  <div class="controls">
-    <input type="text" id="search" placeholder="Search by name or issuer..."/>
-    <select id="categoryFilter">
-      <option value="">All Categories</option>
-    </select>
+  <!-- Search bar with Material Design style -->
+  <div class="search-wrapper" style="max-width: 600px; margin: 0 auto 1.5rem;">
+    <nav>
+      <div class="nav-wrapper white">
+        <form>
+          <div class="input-field">
+            <input
+              id="search"
+              type="search"
+              required
+              placeholder="Search by certificate name, issuer or category..."
+              autocomplete="off"
+            />
+            <label class="label-icon" for="search"
+              ><i class="material-icons">search</i></label
+            >
+            <i class="material-icons" id="clear-search" style="cursor:pointer;"
+              >close</i
+            >
+          </div>
+        </form>
+      </div>
+    </nav>
   </div>
 
-  <table>
+  <!-- Dropdown filters for Category and Issuer -->
+  <div class="filters">
+    <div class="input-field">
+      <select id="categoryFilter">
+        <option value="" selected>All Categories</option>
+      </select>
+      <label>Filter by Category</label>
+    </div>
+    <div class="input-field">
+      <select id="issuerFilter">
+        <option value="" selected>All Issuers</option>
+      </select>
+      <label>Filter by Issuer</label>
+    </div>
+  </div>
+
+  <!-- Certifications table -->
+  <table class="striped responsive-table" id="certTable">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Issuer</th>
-        <th>Earned Date</th>
-        <th>Expiry Date</th>
-        <th>Category</th>
+        <!-- Sortable columns have class 'sortable' and an arrow icon -->
+        <th class="sortable" data-column="0">
+          #
+          <i class="material-icons">arrow_upward</i>
+        </th>
+        <th class="sortable" data-column="1">
+          Certificate Name
+          <i class="material-icons">arrow_upward</i>
+        </th>
+        <th class="sortable" data-column="2">
+          Issuer
+          <i class="material-icons">arrow_upward</i>
+        </th>
+        <th class="sortable" data-column="3">
+          Earned Date
+          <i class="material-icons">arrow_upward</i>
+        </th>
+        <th class="sortable" data-column="4">
+          Expiry Date
+          <i class="material-icons">arrow_upward</i>
+        </th>
+        <th class="sortable" data-column="5">
+          Category
+          <i class="material-icons">arrow_upward</i>
+        </th>
         <th>View</th>
       </tr>
     </thead>
-    <tbody id="certTableBody"></tbody>
+    <tbody>
+      <!-- Table rows will be dynamically generated here -->
+    </tbody>
   </table>
 
-  <footer>
-    Built and maintained by me with help from ChatGPT — 2025
+  <!-- Page footer -->
+  <footer class="page-footer">
+    <div class="container">Thank you for taking the time to review my certifications. I built and maintained this page with help from ChatGPT — 2025. Happy learning!</div>
   </footer>
+
+  <!-- Materialize JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const tableBody = document.getElementById('certTableBody');
+      // Initialize Materialize selects (dropdowns)
+      const selects = document.querySelectorAll('select');
+      M.FormSelect.init(selects);
+
+      // DOM references
       const searchInput = document.getElementById('search');
+      const clearBtn = document.getElementById('clear-search');
       const categoryFilter = document.getElementById('categoryFilter');
+      const issuerFilter = document.getElementById('issuerFilter');
+      const tableBody = document.querySelector('#certTable tbody');
 
-      let certData = [];
+      let rows = []; // Will hold all table rows once generated
 
-      fetch('certs.json?v=' + new Date().getTime()) // cache busting
-        .then(response => response.json())
+      // Load JSON data and build table
+      // fetch('certs.json') 
+	  // Commented by Pranav on 2025-05-17 to fix the cache buster issue.
+	  fetch('certs.json?v=' + new Date().getTime())
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load certifications data');
+          return response.json();
+        })
         .then(data => {
-          certData = data;
-          populateCategoryFilter(certData);
-          renderTable(certData);
+          // Build table rows
+          data.forEach(cert => {
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
+              <td>${cert.id}</td>
+              <td>${cert.name}</td>
+              <td>${cert.issuer}</td>
+              <td>${cert.earnedDate}</td>
+              <td>${cert.expiryDate}</td>
+              <td>${cert.category}</td>
+              <td>
+                <a href="${cert.link}" target="_blank" class="btn blue view-btn">View</a>
+              </td>
+            `;
+
+            tableBody.appendChild(tr);
+          });
+
+          rows = [...tableBody.rows]; // Save reference to rows array
+
+          // Populate filters dynamically after rows exist
+          populateFilters();
+
+          // Initial filter & sort setup
+          filterTable();
+
+          // Initialize sorting on click
+          initSorting();
+        })
+        .catch(error => {
+          tableBody.innerHTML = `<tr><td colspan="7" class="red-text center-align">Error loading data: ${error.message}</td></tr>`;
         });
 
-      function populateCategoryFilter(data) {
-        const categories = [...new Set(data.map(c => c.category))].sort();
+      // Helper: get unique sorted values from column
+      function getUniqueSortedValues(rows, colIndex) {
+        const values = rows.map(row => row.cells[colIndex].textContent.trim());
+        return [...new Set(values)].sort((a, b) => a.localeCompare(b));
+      }
+
+      // Populate Category and Issuer dropdowns
+      function populateFilters() {
+        const categories = getUniqueSortedValues(rows, 5);
+        const issuers = getUniqueSortedValues(rows, 2);
+
         categories.forEach(cat => {
           const option = document.createElement('option');
           option.value = cat;
           option.textContent = cat;
           categoryFilter.appendChild(option);
         });
+
+        issuers.forEach(issuer => {
+          const option = document.createElement('option');
+          option.value = issuer;
+          option.textContent = issuer;
+          issuerFilter.appendChild(option);
+        });
+
+        // Re-initialize Materialize selects to update UI
+        M.FormSelect.init(categoryFilter);
+        M.FormSelect.init(issuerFilter);
       }
 
-      function renderTable(data) {
-        tableBody.innerHTML = '';
-        data.forEach(cert => {
-          const row = document.createElement('tr');
+      // Filter rows based on search & dropdowns
+      function filterTable() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategory = categoryFilter.value;
+        const selectedIssuer = issuerFilter.value;
 
-          row.innerHTML = `
-            <td>${cert.id}</td>
-            <td>${cert.name}</td>
-            <td>${cert.issuer}</td>
-            <td>${cert.earnedDate}</td>
-            <td class="expiry-cell">${cert.expiryDate}</td>
-            <td>${cert.category}</td>
-            <td><a href="${cert.link}" target="_blank" class="view-button">View</a></td>
-          `;
+        rows.forEach(row => {
+          const cellsText = [...row.cells].slice(1, 6).map(c => c.textContent.toLowerCase());
 
-          // Highlight expiry status
-          const expiryCell = row.querySelector('.expiry-cell');
-          const today = new Date();
-          const expiryDate = new Date(cert.expiryDate);
-          if (!isNaN(expiryDate)) {
-            const todayMidnight = new Date();
-            todayMidnight.setHours(0, 0, 0, 0);
-            if (expiryDate < todayMidnight) {
-              expiryCell.classList.add('expired');
-            } else {
-              expiryCell.classList.add('valid');
-            }
+          const matchesSearch = cellsText.join(' ').includes(searchTerm);
+          const matchesCategory = selectedCategory === '' || row.cells[5].textContent === selectedCategory;
+          const matchesIssuer = selectedIssuer === '' || row.cells[2].textContent === selectedIssuer;
+
+          row.style.display = matchesSearch && matchesCategory && matchesIssuer ? '' : 'none';
+        });
+      }
+
+      // Event listeners for filtering
+      searchInput.addEventListener('input', filterTable);
+
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        filterTable();
+        searchInput.focus();
+      });
+
+      categoryFilter.addEventListener('change', filterTable);
+      issuerFilter.addEventListener('change', filterTable);
+
+      // Sorting logic
+      const headers = document.querySelectorAll('th.sortable');
+      let sortDirection = 1;
+      let sortedColumnIndex = null;
+
+      function sortTableByColumn(index) {
+        if (sortedColumnIndex === index) {
+          sortDirection = -sortDirection;
+        } else {
+          sortDirection = 1;
+          sortedColumnIndex = index;
+        }
+
+        headers.forEach(th => {
+          th.classList.remove('sorted-asc', 'sorted-desc');
+        });
+
+        const currentHeader = headers[index];
+        if (sortDirection === 1) {
+          currentHeader.classList.add('sorted-asc');
+        } else {
+          currentHeader.classList.add('sorted-desc');
+        }
+
+        rows.sort((a, b) => {
+          let aText = a.cells[index].textContent.trim();
+          let bText = b.cells[index].textContent.trim();
+
+          // For numeric sorting on ID column
+          if (index === 0) {
+            return sortDirection * (parseInt(aText) - parseInt(bText));
           }
 
-          tableBody.appendChild(row);
-        });
-      }
+          // For date columns, parse dates for better sorting
+          if (index === 3 || index === 4) {
+            const aDate = Date.parse(aText) || 0;
+            const bDate = Date.parse(bText) || 0;
+            return sortDirection * (aDate - bDate);
+          }
 
-      // Search and filter
-      searchInput.addEventListener('input', () => filterAndRender());
-      categoryFilter.addEventListener('change', () => filterAndRender());
-
-      function filterAndRender() {
-        const searchText = searchInput.value.toLowerCase();
-        const categoryValue = categoryFilter.value;
-
-        const filtered = certData.filter(cert => {
-          const matchSearch =
-            cert.name.toLowerCase().includes(searchText) ||
-            cert.issuer.toLowerCase().includes(searchText);
-
-          const matchCategory =
-            !categoryValue || cert.category === categoryValue;
-
-          return matchSearch && matchCategory;
+          // Default: string localeCompare
+          return sortDirection * aText.localeCompare(bText);
         });
 
-        renderTable(filtered);
+        // Re-append sorted rows
+        rows.forEach(row => tableBody.appendChild(row));
       }
 
-      // Sorting
-      const headers = document.querySelectorAll('th');
-      let sortDirection = 1;
-
-      headers.forEach((header, index) => {
-        header.addEventListener('click', () => {
-          sortDirection = -sortDirection;
-          certData.sort((a, b) => {
-            let aText = Object.values(a)[index];
-            let bText = Object.values(b)[index];
-
-            if (index === 0) {
-              return sortDirection * (parseInt(aText) - parseInt(bText));
-            }
-
-            if (index === 3 || index === 4) {
-              return sortDirection * (new Date(aText) - new Date(bText));
-            }
-
-            return sortDirection * aText.toString().localeCompare(bText.toString());
+      // Attach click listeners to sortable headers
+      function initSorting() {
+        headers.forEach((th, i) => {
+          th.addEventListener('click', () => {
+            sortTableByColumn(i);
           });
-
-          filterAndRender();
         });
-      });
+      }
     });
   </script>
-
 </body>
 </html>
