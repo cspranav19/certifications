@@ -179,40 +179,7 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Sample rows - replace with your certificates -->
-      <tr>
-        <td>1</td>
-        <td>Google Data Analytics</td>
-        <td>Coursera</td>
-        <td>Jan 2024</td>
-        <td>N/A</td>
-        <td>Data Science</td>
-        <td>
-          <a href="#" target="_blank" class="btn blue view-btn">View</a>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Microsoft Azure Fundamentals</td>
-        <td>Microsoft</td>
-        <td>Feb 2023</td>
-        <td>Feb 2025</td>
-        <td>Cloud</td>
-        <td>
-          <a href="#" target="_blank" class="btn blue view-btn">View</a>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Certified Scrum Master</td>
-        <td>Scrum Alliance</td>
-        <td>Mar 2022</td>
-        <td>Mar 2024</td>
-        <td>Project Management</td>
-        <td>
-          <a href="#" target="_blank" class="btn blue view-btn">View</a>
-        </td>
-      </tr>
+      <!-- Table rows will be dynamically generated here -->
     </tbody>
   </table>
 
@@ -225,81 +192,109 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
-    // Wait for DOM to load before running script
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Materialize select elements (dropdowns)
+      // Initialize Materialize selects (dropdowns)
       const selects = document.querySelectorAll('select');
       M.FormSelect.init(selects);
 
-      // Get DOM elements for search, clear button, table and filters
+      // DOM references
       const searchInput = document.getElementById('search');
       const clearBtn = document.getElementById('clear-search');
-      const table = document.getElementById('certTable');
-      const tbody = table.tBodies[0];
-      const rows = [...tbody.rows]; // Convert HTMLCollection to array for easier manipulation
       const categoryFilter = document.getElementById('categoryFilter');
       const issuerFilter = document.getElementById('issuerFilter');
+      const tableBody = document.querySelector('#certTable tbody');
 
-      // Function to get unique sorted values from a column to fill dropdown filters
+      let rows = []; // Will hold all table rows once generated
+
+      // Load JSON data and build table
+      fetch('certs.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load certifications data');
+          return response.json();
+        })
+        .then(data => {
+          // Build table rows
+          data.forEach(cert => {
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
+              <td>${cert.id}</td>
+              <td>${cert.name}</td>
+              <td>${cert.issuer}</td>
+              <td>${cert.earnedDate}</td>
+              <td>${cert.expiryDate}</td>
+              <td>${cert.category}</td>
+              <td>
+                <a href="${cert.link}" target="_blank" class="btn blue view-btn">View</a>
+              </td>
+            `;
+
+            tableBody.appendChild(tr);
+          });
+
+          rows = [...tableBody.rows]; // Save reference to rows array
+
+          // Populate filters dynamically after rows exist
+          populateFilters();
+
+          // Initial filter & sort setup
+          filterTable();
+
+          // Initialize sorting on click
+          initSorting();
+        })
+        .catch(error => {
+          tableBody.innerHTML = `<tr><td colspan="7" class="red-text center-align">Error loading data: ${error.message}</td></tr>`;
+        });
+
+      // Helper: get unique sorted values from column
       function getUniqueSortedValues(rows, colIndex) {
-        const values = rows.map((row) => row.cells[colIndex].textContent.trim());
-        // Remove duplicates using Set, then sort alphabetically
+        const values = rows.map(row => row.cells[colIndex].textContent.trim());
         return [...new Set(values)].sort((a, b) => a.localeCompare(b));
       }
 
-      // Populate Category and Issuer dropdowns dynamically from table data
+      // Populate Category and Issuer dropdowns
       function populateFilters() {
-        const categories = getUniqueSortedValues(rows, 5); // Category column index
-        const issuers = getUniqueSortedValues(rows, 2); // Issuer column index
+        const categories = getUniqueSortedValues(rows, 5);
+        const issuers = getUniqueSortedValues(rows, 2);
 
-        categories.forEach((cat) => {
+        categories.forEach(cat => {
           const option = document.createElement('option');
           option.value = cat;
           option.textContent = cat;
           categoryFilter.appendChild(option);
         });
 
-        issuers.forEach((issuer) => {
+        issuers.forEach(issuer => {
           const option = document.createElement('option');
           option.value = issuer;
           option.textContent = issuer;
           issuerFilter.appendChild(option);
         });
 
-        // Re-initialize selects after adding options for Materialize styling
+        // Re-initialize Materialize selects to update UI
         M.FormSelect.init(categoryFilter);
         M.FormSelect.init(issuerFilter);
       }
 
-      populateFilters();
-
-      // Function to filter rows based on search term and dropdown selections
+      // Filter rows based on search & dropdowns
       function filterTable() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCategory = categoryFilter.value;
         const selectedIssuer = issuerFilter.value;
 
-        rows.forEach((row) => {
-          // Collect text from relevant cells to search over
-          const cellsText = [...row.cells]
-            .slice(1, 6)
-            .map((c) => c.textContent.toLowerCase());
+        rows.forEach(row => {
+          const cellsText = [...row.cells].slice(1, 6).map(c => c.textContent.toLowerCase());
 
-          // Check if search term matches any relevant text
           const matchesSearch = cellsText.join(' ').includes(searchTerm);
+          const matchesCategory = selectedCategory === '' || row.cells[5].textContent === selectedCategory;
+          const matchesIssuer = selectedIssuer === '' || row.cells[2].textContent === selectedIssuer;
 
-          // Check if row matches category and issuer filters (if any)
-          const matchesCategory =
-            selectedCategory === '' || row.cells[5].textContent === selectedCategory;
-          const matchesIssuer =
-            selectedIssuer === '' || row.cells[2].textContent === selectedIssuer;
-
-          // Show or hide row based on all filters
           row.style.display = matchesSearch && matchesCategory && matchesIssuer ? '' : 'none';
         });
       }
 
-      // Event listeners for search input, clear button, and filters
+      // Event listeners for filtering
       searchInput.addEventListener('input', filterTable);
 
       clearBtn.addEventListener('click', () => {
@@ -311,27 +306,23 @@
       categoryFilter.addEventListener('change', filterTable);
       issuerFilter.addEventListener('change', filterTable);
 
-      // Sorting variables to track current sorted column and direction
-      const headers = table.querySelectorAll('th.sortable');
-      let sortDirection = 1; // 1 = ascending, -1 = descending
+      // Sorting logic
+      const headers = document.querySelectorAll('th.sortable');
+      let sortDirection = 1;
       let sortedColumnIndex = null;
 
-      // Sorting function for table by column index
       function sortTableByColumn(index) {
-        // Toggle sorting direction if same column is clicked
         if (sortedColumnIndex === index) {
           sortDirection = -sortDirection;
         } else {
-          sortDirection = 1; // default ascending on new column
+          sortDirection = 1;
           sortedColumnIndex = index;
         }
 
-        // Remove sorted classes from all headers for visual reset
-        headers.forEach((th) => {
+        headers.forEach(th => {
           th.classList.remove('sorted-asc', 'sorted-desc');
         });
 
-        // Add sorted class to current header for arrow direction
         const currentHeader = headers[index];
         if (sortDirection === 1) {
           currentHeader.classList.add('sorted-asc');
@@ -339,39 +330,38 @@
           currentHeader.classList.add('sorted-desc');
         }
 
-        // Sort rows array based on column type: number, date, or string
         rows.sort((a, b) => {
           let aText = a.cells[index].textContent.trim();
           let bText = b.cells[index].textContent.trim();
 
-          // Numeric sort for "#" column
+          // For numeric sorting on ID column
           if (index === 0) {
-            return (parseInt(aText) - parseInt(bText)) * sortDirection;
+            return sortDirection * (parseInt(aText) - parseInt(bText));
           }
 
-          // Date parsing for Earned Date (3) and Expiry Date (4) columns
+          // For date columns, parse dates for better sorting
           if (index === 3 || index === 4) {
-            const parseDate = (str) => {
-              if (str.toLowerCase() === 'n/a') return new Date(0); // treat N/A as oldest date
-              return new Date(Date.parse(str));
-            };
-            return (parseDate(aText) - parseDate(bText)) * sortDirection;
+            const aDate = Date.parse(aText) || 0;
+            const bDate = Date.parse(bText) || 0;
+            return sortDirection * (aDate - bDate);
           }
 
-          // String comparison for other columns
-          return aText.localeCompare(bText) * sortDirection;
+          // Default: string localeCompare
+          return sortDirection * aText.localeCompare(bText);
         });
 
-        // Append sorted rows back to table body
-        rows.forEach((row) => tbody.appendChild(row));
+        // Re-append sorted rows
+        rows.forEach(row => tableBody.appendChild(row));
       }
 
-      // Add click event listeners on sortable headers to trigger sorting
-      headers.forEach((th, idx) => {
-        th.addEventListener('click', () => {
-          sortTableByColumn(idx);
+      // Attach click listeners to sortable headers
+      function initSorting() {
+        headers.forEach((th, i) => {
+          th.addEventListener('click', () => {
+            sortTableByColumn(i);
+          });
         });
-      });
+      }
     });
   </script>
 </body>
