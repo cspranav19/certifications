@@ -64,21 +64,21 @@
   },
   {
     "id": 8,
-    "name": "ToUpdate",
-    "issuer": "ToUpdate",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "name": "1Z0-1122-24: Oracle Cloud Infrastructure 2024 AI Foundations Associate",
+    "issuer": "Oracle",
+    "earnedDate": "05-11-2024",
+    "expiryDate": "05-11-2026",
+    "category": "Cloud-AI",
+    "link": "https://drive.google.com/file/d/1D1ums95cQpO775moXewUonHmr212gIFi/view?usp=drive_link"
   },
   {
     "id": 9,
     "name": "ToUpdate",
-    "issuer": "ToUpdate",
+    "issuer": "Oracle",
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   },
   {
     "id": 15,
@@ -132,6 +132,6 @@
     "earnedDate": "Mar 2022",
     "expiryDate": "Mar 2024",
     "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "link": "ToUpdate"
   }
 ]
