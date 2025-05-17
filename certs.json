@@ -169,5 +169,23 @@
     "expiryDate": "2024-10-05",
     "category": "Cloud-SaaS",
     "link": "https://drive.google.com/file/d/1kCt1HtlxbZR3Rm5AuMu0YMPwcFaP6yp2/view?usp=drive_link"
+  },
+  {
+    "id": 20,
+    "name": "1Z0-1073-22: Oracle Inventory Cloud 2022 Implementation Professional",
+    "issuer": "Oracle",
+    "earnedDate": "2023-03-20",
+    "expiryDate": "2024-09-20",
+    "category": "Cloud-SaaS",
+    "link": "https://drive.google.com/file/d/1nWbRR3Q3wAfZHxughZQx9ax50UqGfhhl/view?usp=drive_link"
+  },
+  {
+    "id": 21,
+    "name": "1Z0-1065-22: Oracle Procurement Cloud 2022 Implementation Professional",
+    "issuer": "Oracle",
+    "earnedDate": "2023-03-28",
+    "expiryDate": "2024-09-28",
+    "category": "Cloud-SaaS",
+    "link": "https://drive.google.com/file/d/1qMlEwq8cz9WySkH32-_qw59FtSJMeFOc/view?usp=drive_link"
   }
 ]
