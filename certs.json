@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Google Data Analytics",
+    "issuer": "Coursera",
+    "earnedDate": "Jan 2024",
+    "expiryDate": "N/A",
+    "category": "Data Science",
+    "link": "https://example.com/cert1"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Azure Fundamentals",
+    "issuer": "Microsoft",
+    "earnedDate": "Feb 2023",
+    "expiryDate": "Feb 2025",
+    "category": "Cloud",
+    "link": "https://example.com/cert2"
+  },
+  {
+    "id": 3,
+    "name": "Certified Scrum Master",
+    "issuer": "Scrum Alliance",
+    "earnedDate": "Mar 2022",
+    "expiryDate": "Mar 2024",
+    "category": "Project Management",
+    "link": "https://example.com/cert3"
+  }
+]
