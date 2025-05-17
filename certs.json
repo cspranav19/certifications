@@ -149,7 +149,25 @@
     "issuer": "Oracle",
     "earnedDate": "2021-12-30",
     "expiryDate": "2023-12-30",
-    "category": "Cloud-IaaS",
+    "category": "Cloud-PaaS",
     "link": "https://drive.google.com/file/d/1xV_u1QfRQnHOY_NCRffP2G3rmFg2VXeK/view?usp=drive_link"
+  },
+  {
+    "id": 18,
+    "name": "1Z0-1054-22: Oracle Financials Cloud: General Ledger 2022 Implementation Professional",
+    "issuer": "Oracle",
+    "earnedDate": "2023-03-06",
+    "expiryDate": "2024-09-06",
+    "category": "Cloud-SaaS",
+    "link": "https://drive.google.com/file/d/19pTlFji9yyc8mNj7_wvCj1bBILH0LRpu/view?usp=drive_link"
+  },
+  {
+    "id": 19,
+    "name": "1Z0-1056-22: Oracle Financials Cloud: Receivables 2022 Implementation Professional",
+    "issuer": "Oracle",
+    "earnedDate": "2023-04-05",
+    "expiryDate": "2024-10-05",
+    "category": "Cloud-SaaS",
+    "link": "https://drive.google.com/file/d/1kCt1HtlxbZR3Rm5AuMu0YMPwcFaP6yp2/view?usp=drive_link"
   }
 ]
