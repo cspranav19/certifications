@@ -207,7 +207,9 @@
       let rows = []; // Will hold all table rows once generated
 
       // Load JSON data and build table
-      fetch('certs.json')
+      // fetch('certs.json') 
+	  // Commented by Pranav on 2025-05-17 to fix the cache buster issue.
+	  fetch('certs.json?v=' + new Date().getTime())
         .then(response => {
           if (!response.ok) throw new Error('Failed to load certifications data');
           return response.json();
