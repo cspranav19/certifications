@@ -82,21 +82,21 @@
   },
   {
     "id": 10,
-    "name": "ToUpdate",
-    "issuer": "ToUpdate",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "ToUpdate"
+    "name": "1Z0-1105-23: Oracle Cloud Data Management 2023 Foundations Associate",
+    "issuer": "Oracle",
+    "earnedDate": "17-07-2023",
+    "expiryDate": "17-07-2025",
+    "category": "Cloud-Data",
+    "link": "https://drive.google.com/file/d/1UNm7428gBpx0umvaGErZispLAYn1rDDy/view?usp=drive_link"
   },
   {
     "id": 11,
-    "name": "ToUpdate",
-    "issuer": "ToUpdate",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "ToUpdate"
+    "name": "1Z0-1195-25: Oracle Data Platform 2025 Foundations Associate",
+    "issuer": "Oracle",
+    "earnedDate": "13-05-2025",
+    "expiryDate": "13-05-2027",
+    "category": "Cloud-Data",
+    "link": "https://drive.google.com/file/d/1vHr4pY6BIYUcrCWkyQ5UPwxcihxJLU-k/view?usp=drive_link"
   },
   {
     "id": 12,
