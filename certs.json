@@ -27,13 +27,13 @@
     "link": "https://drive.google.com/file/d/1oNTm0llwV9Z98A1WbxmhTxbWaJkqABtv/view?usp=drive_link"
   },
   {
-    "id": 3,
-    "name": "Certified Scrum Master",
-    "issuer": "Scrum Alliance",
-    "earnedDate": "Mar 2022",
-    "expiryDate": "Mar 2024",
-    "category": "Project Management",
-    "link": "https://example.com/cert3"
+    "id": 4,
+    "name": "1Z0-1085-23: Oracle Cloud Infrastructure 2023 Foundations Associate",
+    "issuer": "Oracle",
+    "earnedDate": "08-JUL-2023",
+    "expiryDate": "08-JUL-2025",
+    "category": "Cloud-IaaS",
+    "link": "https://drive.google.com/file/d/16MGbJg_xu-htlhqinxeKAyYD7CBlqI9d/view?usp=drive_link"
   },
   {
     "id": 3,
