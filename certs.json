@@ -376,5 +376,32 @@
     "expiryDate": "",
     "category": "Programming",
     "link": "https://drive.google.com/file/d/1ppFcMfZEeUKvvKU2YfoOA0CHQeRnJ_-6/view?usp=drive_link"
+  },
+  {
+    "id": 43,
+    "name": "TCA OEA-Oracle-Oracle Workflow-L1",
+    "issuer": "Wipro",
+    "earnedDate": "2017-10-28",
+    "expiryDate": "",
+    "category": "OracleApps",
+    "link": "https://drive.google.com/file/d/1cMqU3oRMy70YdBh1tW0YoPZO4RogINhL/view?usp=drive_link"
+  },
+  {
+    "id": 44,
+    "name": "Code of Business Conduct (COBC)",
+    "issuer": "Wipro",
+    "earnedDate": "2018-08-03",
+    "expiryDate": "",
+    "category": "COBC",
+    "link": "https://drive.google.com/file/d/1LUvSCpM6Si3xPx0WjsAWKGh8b7UZKlVA/view?usp=drive_link"
+  },
+  {
+    "id": 45,
+    "name": "Digital 101",
+    "issuer": "Wipro",
+    "earnedDate": "2018-02-21",
+    "expiryDate": "",
+    "category": "Digital-101",
+    "link": "https://drive.google.com/file/d/176OfRofZNBxq0-RBFhdfboN8gFQBcNQw/view?usp=drive_link"
   }
 ]
