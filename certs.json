@@ -250,5 +250,32 @@
     "expiryDate": "",
     "category": "Cloud-Sec",
     "link": "https://drive.google.com/file/d/1sQDK-nwMp4tsDMUXWa85svVBmVPFDnij/view?usp=drive_link"
+  },
+  {
+    "id": 29,
+    "name": "SQL (Basic)",
+    "issuer": "HackerRank",
+    "earnedDate": "2022-08-11",
+    "expiryDate": "",
+    "category": "Programming",
+    "link": "https://drive.google.com/file/d/1cAKUqnh3-Kv2lmFyay8XCE-PZ7p6mY9p/view?usp=drive_link"
+  },
+  {
+    "id": 30,
+    "name": "SQL (Intermediate)",
+    "issuer": "HackerRank",
+    "earnedDate": "2022-08-11",
+    "expiryDate": "https://drive.google.com/file/d/1y_HAGyvuuLSlGpBddUiagZoEDtGfOcl9/view?usp=drive_link",
+    "category": "Programming",
+    "link": ""
+  },
+  {
+    "id": 31,
+    "name": "SQL (Advanced)",
+    "issuer": "HackerRank",
+    "earnedDate": "2022-08-12",
+    "expiryDate": "",
+    "category": "Programming",
+    "link": "https://drive.google.com/file/d/1JcdsEAeJ4kkN7fCXbI_fWkPIsC7YYGRP/view?usp=drive_link"
   }
 ]
