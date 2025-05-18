@@ -214,5 +214,41 @@
     "expiryDate": "2024-12-22",
     "category": "Cloud-SaaS",
     "link": "https://drive.google.com/file/d/1P1aYrb9OXWf2cCJfURl3wDKx0OXBkiXZ/view?usp=drive_link"
+  },
+  {
+    "id": 25,
+    "name": "AI-900: Microsoft Certified: Azure AI Fundamentals",
+    "issuer": "Microsoft",
+    "earnedDate": "2021-09-25",
+    "expiryDate": "",
+    "category": "Cloud-AI",
+    "link": "https://drive.google.com/file/d/1wFGCVrEWl4GNvTA8YwVJNn4DKM91Ftyk/view?usp=drive_link"
+  },
+  {
+    "id": 26,
+    "name": "DP-900: Microsoft Certified: Azure Data Fundamentals",
+    "issuer": "Microsoft",
+    "earnedDate": "2021-10-15",
+    "expiryDate": "",
+    "category": "Cloud-Data",
+    "link": "https://drive.google.com/file/d/1FylIXU5kfM9dl6FZGSl1IBhe4p7ZmeE5/view?usp=drive_link"
+  },
+  {
+    "id": 27,
+    "name": "AZ-900: Microsoft Certified: Azure Fundamentals",
+    "issuer": "Microsoft",
+    "earnedDate": "2021-10-23",
+    "expiryDate": "",
+    "category": "Cloud-IaaS",
+    "link": "https://drive.google.com/file/d/1t-RjQEtGGzEJewoOgbbhY2kxrgf3sIQW/view?usp=drive_link"
+  },
+  {
+    "id": 28,
+    "name": "SC-900: Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+    "issuer": "Microsoft",
+    "earnedDate": "2022-10-01",
+    "expiryDate": "",
+    "category": "Cloud-Sec",
+    "link": "https://drive.google.com/file/d/1sQDK-nwMp4tsDMUXWa85svVBmVPFDnij/view?usp=drive_link"
   }
 ]
