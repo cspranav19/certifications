@@ -158,7 +158,25 @@
       <label>Filter by Issuer</label>
     </div>
   </div>
-
+  
+  <!-- Added by Pranav on 2025-05-19. -->
+  <!-- Category Legend visually displays the meaning of each certification category. -->
+  <!-- Each chip shows a short category label with a tooltip that explains the full name. -->
+  <!-- This helps viewers quickly understand what "Cloud-AI", "Data", "Lean", etc. mean. -->
+  <!-- Category Legend -->
+  <div class="container" style="margin-bottom: 2rem;">
+    <h5>Category Legend</h5>
+    <div class="chip tooltipped blue white-text" data-position="top" data-tooltip="Microsoft Azure AI Fundamentals">Cloud-AI</div>
+    <div class="chip tooltipped indigo white-text" data-position="top" data-tooltip="Oracle Cloud Infrastructure Foundations">Cloud-IaaS</div>
+    <div class="chip tooltipped green white-text" data-position="top" data-tooltip="Oracle SQL">Data</div>
+    <div class="chip tooltipped yellow darken-2 white-text" data-position="top" data-tooltip="Agile Fundamentals">Agile</div>
+    <div class="chip tooltipped amber darken-3 white-text" data-position="top" data-tooltip="Lean Methodology">Lean</div>
+    <div class="chip tooltipped teal white-text" data-position="top" data-tooltip="Quality 101">Quality</div>
+    <div class="chip tooltipped grey darken-2 white-text" data-position="top" data-tooltip="Software Configuration Management">Release</div>
+    <div class="chip tooltipped red white-text" data-position="top" data-tooltip="Software Reviews and Testing">Testing</div>
+  </div>
+  <!-- Added by Pranav on 2025-05-19. -->
+  
   <!-- Certifications table -->
   <table class="striped responsive-table" id="certTable">
     <thead>
@@ -209,6 +227,14 @@
       // Initialize Materialize selects (dropdowns)
       const selects = document.querySelectorAll('select');
       M.FormSelect.init(selects);
+	  
+	  // Added by Pranav on 2025-05-19.
+	  // Initialize tooltips for category legend.
+	  // Enable tooltips on elements with class "tooltipped".
+	  // This makes the category legend chips show full descriptions when hovered.
+      const tooltips = document.querySelectorAll('.tooltipped');
+      M.Tooltip.init(tooltips);
+	  // Added by Pranav on 2025-05-19.
 
       // DOM references
       const searchInput = document.getElementById('search');
