@@ -277,5 +277,59 @@
     "expiryDate": "",
     "category": "Programming",
     "link": "https://drive.google.com/file/d/1JcdsEAeJ4kkN7fCXbI_fWkPIsC7YYGRP/view?usp=drive_link"
+  },
+  {
+    "id": 32,
+    "name": "Agile",
+    "issuer": "Wipro",
+    "earnedDate": "2016-10-10",
+    "expiryDate": "",
+    "category": "Agile",
+    "link": "https://drive.google.com/file/d/1sKVv1Q-BNa8w-DtnDWWHotXqtO3knOl7/view?usp=drive_link"
+  },
+  {
+    "id": 33,
+    "name": "Lean",
+    "issuer": "Wipro",
+    "earnedDate": "2016-07-19",
+    "expiryDate": "",
+    "category": "Lean",
+    "link": "https://drive.google.com/file/d/1k52GtMImWjW0h1kJ6GKvrtuU5iwUcO-b/view?usp=drive_link"
+  },
+  {
+    "id": 34,
+    "name": "Quality 101",
+    "issuer": "Wipro",
+    "earnedDate": "2016-07-19",
+    "expiryDate": "",
+    "category": "Quality",
+    "link": "https://drive.google.com/file/d/1wXKsZEFeY-bPOBMhArG4chYbECl24jld/view?usp=drive_link"
+  },
+  {
+    "id": 35,
+    "name": "Software Configuration Management",
+    "issuer": "Wipro",
+    "earnedDate": "2016-07-19",
+    "expiryDate": "",
+    "category": "",
+    "link": "https://drive.google.com/file/d/1vrN3nhFJJGQdSsTlS5BKyGHpRCPLptg0/view?usp=drive_link"
+  },
+  {
+    "id": 36,
+    "name": "Software Reviews and Testing",
+    "issuer": "Wipro",
+    "earnedDate": "2016-07-19",
+    "expiryDate": "",
+    "category": "Testing",
+    "link": "https://drive.google.com/file/d/1UBq8Tqf7f-ztQJXpa9O7tJwpAxsuGFmr/view?usp=drive_link"
+  },
+  {
+    "id": 37,
+    "name": "TCA ADM-DB-ORACLE SQL-L1",
+    "issuer": "Wipro",
+    "earnedDate": "2016-11-07",
+    "expiryDate": "",
+    "category": "Programming",
+    "link": "https://drive.google.com/file/d/17_DAwluMryOi1DxYDCC7XmfhLUoAE9_C/view?usp=drive_link"
   }
 ]
