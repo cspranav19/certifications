@@ -311,7 +311,7 @@
     "issuer": "Wipro",
     "earnedDate": "2016-07-19",
     "expiryDate": "",
-    "category": "",
+    "category": "SCM",
     "link": "https://drive.google.com/file/d/1vrN3nhFJJGQdSsTlS5BKyGHpRCPLptg0/view?usp=drive_link"
   },
   {
@@ -331,5 +331,50 @@
     "expiryDate": "",
     "category": "Programming",
     "link": "https://drive.google.com/file/d/17_DAwluMryOi1DxYDCC7XmfhLUoAE9_C/view?usp=drive_link"
+  },
+  {
+    "id": 38,
+    "name": "TCA OEA-Oracle-Apps Technical-L1",
+    "issuer": "Wipro",
+    "earnedDate": "2016-10-06",
+    "expiryDate": "",
+    "category": "OracleApps",
+    "link": "https://drive.google.com/file/d/1kHuLOrxNICfBmPRpvqqhl7JT26Efn9Xf/view?usp=drive_link"
+  },
+  {
+    "id": 39,
+    "name": "Code of Business Conduct (COBC)",
+    "issuer": "Wipro",
+    "earnedDate": "2017-07-25",
+    "expiryDate": "",
+    "category": "COBC",
+    "link": "https://drive.google.com/file/d/1QGbvwTGGvLcM563bY2a1DROyi3n38ajL/view?usp=drive_link"
+  },
+  {
+    "id": 40,
+    "name": "Information Security Awareness Course",
+    "issuer": "Wipro",
+    "earnedDate": "2017-07-13",
+    "expiryDate": "",
+    "category": "Infosec",
+    "link": "https://drive.google.com/file/d/1ZXWfcuQjXxjfMbeDGKrdA1Wnd2tUOmhN/view?usp=drive_link"
+  },
+  {
+    "id": 41,
+    "name": "ITIL Awareness",
+    "issuer": "Wipro",
+    "earnedDate": "2017-02-26",
+    "expiryDate": "",
+    "category": "ITIL",
+    "link": "https://drive.google.com/file/d/1jVmcmUynU7ZJTh2W18OOInIQUxDPmRs4/view?usp=drive_link"
+  },
+  {
+    "id": 42,
+    "name": "TCA BAS-CES-Usability-HTML-L1",
+    "issuer": "Wipro",
+    "earnedDate": "2017-01-13",
+    "expiryDate": "",
+    "category": "Programming",
+    "link": "https://drive.google.com/file/d/1ppFcMfZEeUKvvKU2YfoOA0CHQeRnJ_-6/view?usp=drive_link"
   }
 ]
