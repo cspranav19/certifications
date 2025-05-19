@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Certifications Portfolio</title>
-<!-- Materialize CSS for Material Design styles -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
-<!-- Google Fonts: Roboto -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
-<!-- Material Icons -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certifications Portfolio</title>
+
+  <!-- Materialize CSS for Material Design styles -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <style>
     /* Body uses Roboto font and light gray background */
     body {
       font-family: 'Roboto', sans-serif;
@@ -106,145 +112,119 @@
       font-weight: bold;
     }	
 
-  
-/* Mobile-first responsive styles */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  .search-wrapper nav {
-    font-size: 14px;
-  }
-
-  .filters {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0 1rem;
-  }
-
-  .filters .input-field {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  table th, table td {
-    font-size: 13px;
-    padding: 6px 8px;
-    word-break: break-word;
-  }
-
-  .view-button {
-    font-size: 13px;
-    padding: 5px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 1rem;
-  }
-  .filters {
-    gap: 0.5rem;
-  }
-}
-</style>
+  </style>
 </head>
 <body>
-<!-- Page title -->
-<h1>Certifications Portfolio</h1>
-<!-- Search bar with Material Design style -->
-<div class="search-wrapper" style="max-width: 600px; margin: 0 auto 1.5rem;">
-<nav>
-<div class="nav-wrapper white">
-<form>
-<div class="input-field">
-<input autocomplete="off" id="search" placeholder="Search by certificate name, issuer or category..." required="" type="search"/>
-<label class="label-icon" for="search"><i class="material-icons">search</i></label>
-<i class="material-icons" id="clear-search" style="cursor:pointer;">close</i>
-</div>
-</form>
-</div>
-</nav>
-</div>
-<!-- Dropdown filters for Category and Issuer -->
-<div class="filters">
-<div class="input-field">
-<select id="categoryFilter">
-<option selected="" value="">All Categories</option>
-</select>
-<label>Filter by Category</label>
-</div>
-<div class="input-field">
-<select id="issuerFilter">
-<option selected="" value="">All Issuers</option>
-</select>
-<label>Filter by Issuer</label>
-</div>
-</div>
-<!-- Added by Pranav on 2025-05-19. -->
-<!-- Category Legend visually displays the meaning of each certification category. -->
-<!-- Each chip shows a short category label with a tooltip that explains the full name. -->
-<!-- This helps viewers quickly understand what "Cloud-AI", "Data", "Lean", etc. mean. -->
-<!-- Category Legend -->
-<div class="container" style="margin-bottom: 2rem;">
-<h5>Category Legend</h5>
-<div class="chip tooltipped blue white-text" data-position="top" data-tooltip="Artificial Intelligence">Cloud-AI</div>
-<div class="chip tooltipped indigo white-text" data-position="top" data-tooltip="Infrastructure-as-a-Service">Cloud-IaaS</div>
-<div class="chip tooltipped black white-text" data-position="top" data-tooltip="Platform-as-a-Service">Cloud-PaaS</div>
-<div class="chip tooltipped brown white-text" data-position="top" data-tooltip="Software-as-a-Service">Cloud-SaaS</div>
-<div class="chip tooltipped green white-text" data-position="top" data-tooltip="Programming">Programming</div>
-<div class="chip tooltipped yellow darken-2 white-text" data-position="top" data-tooltip="Project Methodology">Agile</div>
-<div class="chip tooltipped amber darken-3 white-text" data-position="top" data-tooltip="Lean Methodology">Lean</div>
-<div class="chip tooltipped teal white-text" data-position="top" data-tooltip="Quality Management">Quality</div>
-<div class="chip tooltipped grey darken-2 white-text" data-position="top" data-tooltip="Software Configuration Management">SCM</div>
-<div class="chip tooltipped red white-text" data-position="top" data-tooltip="Software Reviews and Testing">Testing</div>
-</div>
-<!-- Added by Pranav on 2025-05-19. -->
-<!-- Certifications table -->
-<div style="overflow-x: auto; width: 100%;"><table class="striped responsive-table" id="certTable">
-<thead>
-<tr>
-<!-- Sortable columns have class 'sortable' and an arrow icon -->
-<th class="sortable" data-column="0">
+  <!-- Page title -->
+  <h1>Certifications Portfolio</h1>
+
+  <!-- Search bar with Material Design style -->
+  <div class="search-wrapper" style="max-width: 600px; margin: 0 auto 1.5rem;">
+    <nav>
+      <div class="nav-wrapper white">
+        <form>
+          <div class="input-field">
+            <input
+              id="search"
+              type="search"
+              required
+              placeholder="Search by certificate name, issuer or category..."
+              autocomplete="off"
+            />
+            <label class="label-icon" for="search"
+              ><i class="material-icons">search</i></label
+            >
+            <i class="material-icons" id="clear-search" style="cursor:pointer;"
+              >close</i
+            >
+          </div>
+        </form>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Dropdown filters for Category and Issuer -->
+  <div class="filters">
+    <div class="input-field">
+      <select id="categoryFilter">
+        <option value="" selected>All Categories</option>
+      </select>
+      <label>Filter by Category</label>
+    </div>
+    <div class="input-field">
+      <select id="issuerFilter">
+        <option value="" selected>All Issuers</option>
+      </select>
+      <label>Filter by Issuer</label>
+    </div>
+  </div>
+  
+  <!-- Added by Pranav on 2025-05-19. -->
+  <!-- Category Legend visually displays the meaning of each certification category. -->
+  <!-- Each chip shows a short category label with a tooltip that explains the full name. -->
+  <!-- This helps viewers quickly understand what "Cloud-AI", "Data", "Lean", etc. mean. -->
+  <!-- Category Legend -->
+  <div class="container" style="margin-bottom: 2rem;">
+    <h5>Category Legend</h5>
+    <div class="chip tooltipped blue white-text" data-position="top" data-tooltip="Artificial Intelligence">Cloud-AI</div>
+    <div class="chip tooltipped indigo white-text" data-position="top" data-tooltip="Infrastructure-as-a-Service">Cloud-IaaS</div>
+	<div class="chip tooltipped black white-text" data-position="top" data-tooltip="Platform-as-a-Service">Cloud-PaaS</div>
+	<div class="chip tooltipped brown white-text" data-position="top" data-tooltip="Software-as-a-Service">Cloud-SaaS</div>
+    <div class="chip tooltipped green white-text" data-position="top" data-tooltip="Programming">Programming</div>
+    <div class="chip tooltipped yellow darken-2 white-text" data-position="top" data-tooltip="Project Methodology">Agile</div>
+    <div class="chip tooltipped amber darken-3 white-text" data-position="top" data-tooltip="Lean Methodology">Lean</div>
+    <div class="chip tooltipped teal white-text" data-position="top" data-tooltip="Quality Management">Quality</div>
+    <div class="chip tooltipped grey darken-2 white-text" data-position="top" data-tooltip="Software Configuration Management">SCM</div>
+    <div class="chip tooltipped red white-text" data-position="top" data-tooltip="Software Reviews and Testing">Testing</div>
+  </div>
+  <!-- Added by Pranav on 2025-05-19. -->
+  
+  <!-- Certifications table -->
+  <table class="striped responsive-table" id="certTable">
+    <thead>
+      <tr>
+        <!-- Sortable columns have class 'sortable' and an arrow icon -->
+        <th class="sortable" data-column="0">
           #
           <i class="material-icons">arrow_upward</i>
-</th>
-<th class="sortable" data-column="1">
+        </th>
+        <th class="sortable" data-column="1">
           Certification Exam Name
           <i class="material-icons">arrow_upward</i>
-</th>
-<th class="sortable" data-column="2">
+        </th>
+        <th class="sortable" data-column="2">
           Issuer
           <i class="material-icons">arrow_upward</i>
-</th>
-<th class="sortable" data-column="3">
+        </th>
+        <th class="sortable" data-column="3">
           Earned Date
           <i class="material-icons">arrow_upward</i>
-</th>
-<th class="sortable" data-column="4">
+        </th>
+        <th class="sortable" data-column="4">
           Expiry Date
           <i class="material-icons">arrow_upward</i>
-</th>
-<th class="sortable" data-column="5">
+        </th>
+        <th class="sortable" data-column="5">
           Category
           <i class="material-icons">arrow_upward</i>
-</th>
-<th>View</th>
-</tr>
-</thead>
-<tbody>
-<!-- Table rows will be dynamically generated here -->
-</tbody>
-</table></div>
-<!-- Page footer -->
-<footer class="page-footer">
-<div class="container">Thank you for taking the time to review my certifications. I built and maintained this page with help from ChatGPT — 2025. Happy learning!</div>
-</footer>
-<!-- Materialize JS and dependencies -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>
+        </th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows will be dynamically generated here -->
+    </tbody>
+  </table>
+
+  <!-- Page footer -->
+  <footer class="page-footer">
+    <div class="container">Thank you for taking the time to review my certifications. I built and maintained this page with help from ChatGPT — 2025. Happy learning!</div>
+  </footer>
+
+  <!-- Materialize JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize Materialize selects (dropdowns)
       const selects = document.querySelectorAll('select');
