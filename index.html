@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Certifications Portfolio</title>
+<title>Certifications Portfolio NEW</title>
 <!-- Materialize CSS for Material Design styles -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
 <!-- Google Fonts: Roboto -->
@@ -107,26 +107,28 @@
     }	
 
   
-/* Mobile-first responsive styles */
+/* Mobile-first responsive layout */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.5rem;
     text-align: center;
   }
 
-  .search-wrapper nav {
-    font-size: 14px;
-  }
-
   .filters {
+    display: flex;
     flex-direction: column;
+    gap: 0.75rem;
     align-items: stretch;
     padding: 0 1rem;
   }
 
-  .filters .input-field {
-    width: 100%;
-    margin-bottom: 10px;
+  .search-wrapper nav {
+    font-size: 14px;
+  }
+
+  .filters .input-field,
+  .search-wrapper input {
+    width: 100% !important;
   }
 
   table th, table td {
@@ -135,9 +137,9 @@
     word-break: break-word;
   }
 
-  .view-button {
-    font-size: 13px;
-    padding: 5px 10px;
+  .view-btn {
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
 
@@ -145,6 +147,7 @@
   body {
     padding: 1rem;
   }
+
   .filters {
     gap: 0.5rem;
   }
@@ -203,7 +206,7 @@
 </div>
 <!-- Added by Pranav on 2025-05-19. -->
 <!-- Certifications table -->
-<div style="overflow-x: auto; width: 100%;"><table class="striped responsive-table" id="certTable">
+<div class="table-scroll" style="overflow-x:auto;"><table class="striped responsive-table" id="certTable">
 <thead>
 <tr>
 <!-- Sortable columns have class 'sortable' and an arrow icon -->
