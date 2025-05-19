@@ -100,17 +100,39 @@
       transform: rotate(180deg);
     }
 
-	/* Added by Pranav on 2025-05-17 to apply Red   colour to the cells of the Expiry Date column when the Date <  Today's Date */
+	/* Added by Pranav on 2025-05-17 */
+	/* To apply Red   colour to the cells of the Expiry Date column when the Date LESS-THAN    OR EQUAL TO Today Date */
     .expired {
       color: red;
       font-weight: bold;
     }
-
-	/* Added by Pranav on 2025-05-17 to apply Green colour to the cells of the Expiry Date column when the Date >= Today's Date */
+    /* Added by Pranav on 2025-05-17 */
+	
+	/* Added by Pranav on 2025-05-17 */
+	/* To apply Green colour to the cells of the Expiry Date column when the Date GREATER-THAN OR EQUAL TO Today Date */
     .valid {
       color: green;
       font-weight: bold;
-    }	
+    }
+	/* Added by Pranav on 2025-05-17 */
+    
+	/* Added by Pranav on 2025-05-20 */
+	@media (max-width: 600px) {
+      table th, table td {
+        font-size: 13px;
+        padding: 6px 8px;
+      }
+      .search-wrapper nav {
+        font-size: 14px;
+      }
+      .filters .input-field {
+        width: 100%;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+   }
+   /* Added by Pranav on 2025-05-20 */
 
   </style>
 </head>
@@ -180,7 +202,16 @@
   <!-- Added by Pranav on 2025-05-19. -->
   
   <!-- Certifications table -->
+  <!-- Commented by Pranav on 2025-05-20. -->
+  <!-- <table class="striped responsive-table" id="certTable"> -->
+  <!-- Commented by Pranav on 2025-05-20. -->
+  <!-- Added by Pranav on 2025-05-20. -->
+  <div class="table-responsive" style="overflow-x:auto;">
   <table class="striped responsive-table" id="certTable">
+    ...
+  </table>
+  </div>
+  <!-- Added by Pranav on 2025-05-20. -->
     <thead>
       <tr>
         <!-- Sortable columns have class 'sortable' and an arrow icon -->
